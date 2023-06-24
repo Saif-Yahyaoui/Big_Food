@@ -1,13 +1,16 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class PAGE7 extends StatefulWidget {
-  const PAGE7({Key? key}) : super(key: key);
+import 'package:big_food/page_6.dart';
+
+class Page7 extends StatefulWidget {
+  const Page7({Key? key}) : super(key: key);
 
   @override
-  _PAGE7State createState() => _PAGE7State();
+  _Page7State createState() => _Page7State();
 }
 
-class _PAGE7State extends State<PAGE7> {
+class _Page7State extends State<Page7> {
   bool obscureText = true;
   bool showPrefix = true;
 
@@ -27,18 +30,11 @@ class _PAGE7State extends State<PAGE7> {
         child: Container(
           child: Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: screenHeight * 0.05),
-                Positioned(
-                  left: screenWidth * 0.24,
-                  top: screenHeight * 0.15,
-                  width: screenWidth * 0.12,
-                  height: screenHeight * 0.25,
-                  child: Image.asset(
-                    "assets/images/Groupe 68.png",
-                  ),
+                Image.asset(
+                  "assets/images/Groupe 68.png",
                 ),
                 SizedBox(height: screenHeight * 0.02),
                 Container(
@@ -87,7 +83,7 @@ class _PAGE7State extends State<PAGE7> {
                       ),
                       hintText: 'Nom',
                       hintStyle: TextStyle(
-                        color: Color(0xff707070).withOpacity(0.53),
+                        color: Color(0xFF707070).withOpacity(0.53),
                         fontSize: screenWidth * 0.035,
                         height: 0.8,
                         fontFamily: 'Poppins Regular',
@@ -128,7 +124,7 @@ class _PAGE7State extends State<PAGE7> {
                       ),
                       hintText: 'Email',
                       hintStyle: TextStyle(
-                        color: Color(0xff707070).withOpacity(0.53),
+                        color: Color(0xFF707070).withOpacity(0.53),
                         fontSize: screenWidth * 0.035,
                         height: 0.8,
                         fontFamily: 'Poppins Regular',
@@ -177,7 +173,7 @@ class _PAGE7State extends State<PAGE7> {
                       ),
                       hintText: 'Password',
                       hintStyle: TextStyle(
-                        color: Color(0xff707070).withOpacity(0.53),
+                        color: Color(0xFF707070).withOpacity(0.53),
                         fontSize: screenWidth * 0.035,
                         height: 0.8,
                         fontFamily: 'Poppins Regular',
@@ -218,7 +214,7 @@ class _PAGE7State extends State<PAGE7> {
                       ),
                       hintText: 'Telephone',
                       hintStyle: TextStyle(
-                        color: Color(0xff707070).withOpacity(0.53),
+                        color: Color(0xFF707070).withOpacity(0.53),
                         fontSize: screenWidth * 0.035,
                         height: 0.8,
                         fontFamily: 'Poppins Regular',
@@ -228,34 +224,32 @@ class _PAGE7State extends State<PAGE7> {
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.035),
-                Positioned(
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(builder: (context) => Page8()),
-                        // );
-                      },
-                      child: Container(
-                        width: screenWidth * 0.9,
-                        height: screenHeight * 0.075,
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Inscription',
-                          style: TextStyle(fontSize: screenWidth * 0.055),
+                Container(
+                  alignment: Alignment.center,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => Page8()),
+                      // );
+                    },
+                    child: Container(
+                      width: screenWidth * 0.9,
+                      height: screenHeight * 0.075,
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Inscription',
+                        style: TextStyle(fontSize: screenWidth * 0.055),
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                          screenWidth * 0.03,
                         ),
                       ),
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                            screenWidth * 0.03,
-                          ),
-                        ),
-                        primary: Color(0xFFFF0000),
-                      ),
+                      primary: Color(0xFFFF0000),
                     ),
                   ),
                 ),
@@ -281,10 +275,22 @@ class _PAGE7State extends State<PAGE7> {
                             ),
                           ),
                           TextSpan(
-                            text: ' Login',
+                            text: ' ',
+                          ),
+                          TextSpan(
+                            text: 'Login',
                             style: TextStyle(
                               color: Color(0xFF0080FF),
                             ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Page6(),
+                                  ),
+                                );
+                              },
                           ),
                         ],
                       ),

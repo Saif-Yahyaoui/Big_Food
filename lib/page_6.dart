@@ -1,5 +1,8 @@
+import 'package:big_food/page_11.dart';
+import 'package:big_food/page_8.dart';
 import 'package:flutter/material.dart';
 import 'package:big_food/page_7.dart';
+import 'package:flutter/gestures.dart';
 
 class Page6 extends StatefulWidget {
   const Page6({Key? key}) : super(key: key);
@@ -147,15 +150,29 @@ class _Page6State extends State<Page6> {
                   width: MediaQuery.of(context).size.width * 0.26,
                   height: MediaQuery.of(context).size.height * 0.015,
                   child: Center(
-                    child: Text(
-                      "Mot de passe oubliée",
+                    child: RichText(
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.width * 0.022,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w500,
-                        height: 1.5,
-                        color: Color(0xFF04C1E8),
+                      text: TextSpan(
+                        style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width * 0.022,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w500,
+                          height: 1.5,
+                          color: Color(0xFF04C1E8),
+                        ),
+                        children: [
+                          TextSpan(
+                            text: "Mot de passe oubliée",
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Page8()),
+                                );
+                              },
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -172,7 +189,7 @@ class _Page6State extends State<Page6> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => PAGE7()),
+                        MaterialPageRoute(builder: (context) => Page11()),
                       );
                     },
                     child: Text(
@@ -215,6 +232,14 @@ class _Page6State extends State<Page6> {
                             style: TextStyle(
                               color: Color(0xFF0080FF),
                             ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Page7()),
+                                );
+                              },
                           ),
                         ],
                       ),
@@ -263,9 +288,14 @@ class _Page6State extends State<Page6> {
                       padding: EdgeInsets.zero,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(
-                            MediaQuery.of(context).size.width * 0.048),
+                          MediaQuery.of(context).size.width * 0.048,
+                        ),
+                        side: BorderSide(
+                          color: Color(0xFF707070),
+                          width: 0.5,
+                        ),
                       ),
-                      primary: null,
+                      primary: Colors.white, // Set the button color to white
                     ),
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.78,
@@ -289,6 +319,7 @@ class _Page6State extends State<Page6> {
                           Text(
                             'Contenu avec Google',
                             style: TextStyle(
+                                color: Colors.black,
                                 fontSize:
                                     MediaQuery.of(context).size.width * 0.04),
                           ),
@@ -306,10 +337,14 @@ class _Page6State extends State<Page6> {
                       padding: EdgeInsets.zero,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(
-                          MediaQuery.of(context).size.width * 0.19,
+                          MediaQuery.of(context).size.width * 0.048,
+                        ),
+                        side: BorderSide(
+                          color: Color(0xFF707070),
+                          width: 0.5,
                         ),
                       ),
-                      primary: null, // Set the primary color to null
+                      primary: Colors.white, // Set the button color to white
                     ),
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.78,
@@ -321,8 +356,8 @@ class _Page6State extends State<Page6> {
                         children: [
                           Padding(
                             padding: EdgeInsets.only(
-                              right: MediaQuery.of(context).size.width * 0.03,
-                            ),
+                                right:
+                                    MediaQuery.of(context).size.width * 0.03),
                             child: Image.asset(
                               'assets/images/facebook.png',
                               width: MediaQuery.of(context).size.width * 0.06,
@@ -333,9 +368,9 @@ class _Page6State extends State<Page6> {
                           Text(
                             'Contenu avec Facebook',
                             style: TextStyle(
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.038,
-                            ),
+                                color: Colors.black,
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.04),
                           ),
                         ],
                       ),
