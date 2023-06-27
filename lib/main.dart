@@ -74,9 +74,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          // primarySwatch: Colors.red,
-          ),
+        primarySwatch: Colors.red,
+      ),
       home: const SplashPage(),
       routes: {
         '/home': (context) => const HomePage(),

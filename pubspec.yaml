@@ -30,6 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
   lottie: ^1.1.0
+  faker: ^2.0.0
 
 
 

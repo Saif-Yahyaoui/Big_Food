@@ -1,3 +1,4 @@
+import 'package:big_food/page_8.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -228,10 +229,10 @@ class _Page7State extends State<Page7> {
                   alignment: Alignment.center,
                   child: ElevatedButton(
                     onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => Page8()),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Page6()),
+                      );
                     },
                     child: Container(
                       width: screenWidth * 0.9,
