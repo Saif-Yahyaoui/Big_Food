@@ -1,14 +1,13 @@
 import 'dart:ui';
 import 'dart:async';
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class Page11 extends StatefulWidget {
   const Page11({Key? key}) : super(key: key);
-
   @override
   _Page11State createState() => _Page11State();
 }
@@ -27,7 +26,6 @@ class _Page11State extends State<Page11> {
   List<Widget> _pages = [
     Page1(),
   ];
-
   void _onTabSelected(int index) {
     setState(() {
       _selectedIndex = index;
@@ -40,15 +38,14 @@ class _Page11State extends State<Page11> {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize:
-            Size.fromHeight(140), // Set the desired height of the app bar
+        preferredSize: Size.fromHeight(140),
         child: AppBar(
-          automaticallyImplyLeading: false, // Remove the default back button
-          backgroundColor: Colors.red, // Set the background color to red
+          automaticallyImplyLeading: false,
+          backgroundColor: Colors.red,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(40), // Rounded bottom left corner
-              bottomRight: Radius.circular(40), // Rounded bottom right corner
+              bottomLeft: Radius.circular(40),
+              bottomRight: Radius.circular(40),
             ),
           ),
           flexibleSpace: Align(
@@ -57,12 +54,17 @@ class _Page11State extends State<Page11> {
               padding: const EdgeInsets.only(left: 0, bottom: 80),
               child: Row(
                 children: [
-                  IconButton(
-                    color: Colors.white,
-                    iconSize: 32,
-                    icon: Icon(Icons.menu),
-                    onPressed: () {
-                      // Handle menu button press
+                  Builder(
+                    builder: (BuildContext context) {
+                      return IconButton(
+                        color: Colors.white,
+                        iconSize: 32,
+                        icon: Icon(Icons.menu),
+                        onPressed: () {
+                          // Open the drawer when the button is pressed
+                          Scaffold.of(context).openDrawer();
+                        },
+                      );
                     },
                   ),
                   SizedBox(width: 8),
@@ -70,7 +72,7 @@ class _Page11State extends State<Page11> {
                     'Big Food',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: screenWidth * 0.08,
+                      fontSize: screenWidth * 0.09,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.bold,
                       height: 1.3,
@@ -82,26 +84,23 @@ class _Page11State extends State<Page11> {
           ),
           actions: [
             Padding(
-              padding: EdgeInsets.only(
-                  right: 16.0, top: 12), // Set the desired margin
+              padding: EdgeInsets.only(right: 16.0, top: 12),
               child: IconButton(
                 onPressed: () {
                   // Handle bell icon press
                 },
                 icon: ImageIcon(
-                  AssetImage(
-                      'assets/images/bell.png'), // Replace with the path to your image
+                  AssetImage('assets/images/bell.png'),
                   color: Colors.white,
                 ),
               ),
             ),
           ],
           bottom: PreferredSize(
-            preferredSize:
-                Size.fromHeight(0), // Set the desired height of the search bar
+            preferredSize: Size.fromHeight(0),
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-              height: 30, // Set the desired height
+              height: 30,
               child: TextField(
                 decoration: InputDecoration(
                   suffixIcon: GestureDetector(
@@ -112,14 +111,13 @@ class _Page11State extends State<Page11> {
                       height: screenHeight * 0.03,
                     ),
                   ),
-                  hintText: 'Que vas-tu trouver?', // Set the hint text
+                  hintText: 'Que vas-tu trouver?',
                   hintStyle: TextStyle(
                     color: Color(0xff707070).withOpacity(0.7),
                     fontSize: screenWidth * 0.035,
-                    height: 0.8,
+                    height: 0.6,
                     fontFamily: 'Poppins Regular',
                   ),
-                  alignLabelWithHint: true,
                   filled: true,
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
@@ -130,6 +128,139 @@ class _Page11State extends State<Page11> {
               ),
             ),
           ),
+        ),
+      ),
+      drawer: Drawer(
+        backgroundColor: Colors.red,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(40),
+          ),
+        ),
+        child: ListView(
+          children: [
+            SizedBox(height: screenHeight * 0.05),
+            DrawerHeader(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: screenHeight * 0.01),
+                  Text(
+                    'Bonjour',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    'John Doe',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    'johndoe@example.com',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: Image.asset('assets/images/user.png'),
+              title: Text(
+                'Home',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Image.asset('assets/images/cart.png'),
+              title: Text(
+                'Mes commandes',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Image.asset('assets/images/gift.png'),
+              title: Text(
+                'Parrainez vos amis',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Image.asset('assets/images/promo.png'),
+              title: Text(
+                'Code promo',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Image.asset('assets/images/faq.png'),
+              title: Text(
+                'F.A.Q',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Image.asset('assets/images/setting.png'),
+              title: Text(
+                'Paramétre',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Image.asset('assets/images/info.png'),
+              title: Text(
+                'Qui Somme Nous',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Image.asset('assets/images/logout.png'),
+              title: Text(
+                'Déconnexion',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+              onTap: () {},
+            ),
+          ],
         ),
       ),
       body: _pages[_selectedIndex],
@@ -157,11 +288,9 @@ class _Page1State extends State<Page1> {
     'assets/images/frise.png',
     'assets/images/fingers.png',
   ];
-
   List<String> titles = [
     'Naturales',
   ];
-
   List<String> texts = [
     'Maltedas Tropicales',
   ];
@@ -186,7 +315,6 @@ class _Page1State extends State<Page1> {
     'Fries',
     'Chicken fingers',
   ];
-
   List<String> prices = [
     '\$12.58',
     '\$20.58',
@@ -201,13 +329,26 @@ class _Page1State extends State<Page1> {
     '\$3.20',
     '\$5.99',
   ];
-
+  final List<String> images = [
+    'assets/images/tacos.png',
+    'assets/images/frias.png',
+    'assets/images/burger2.png',
+    'assets/images/pizza.png',
+    'assets/images/burrito.png',
+    // Add more image paths as needed
+  ];
+  final List<String> imageTitles = [
+    'Tacos',
+    'Frias',
+    'Burger',
+    'Pizza',
+    'Burritos',
+    // Add more titles corresponding to the images
+  ];
   late final PageController pageController;
   late final ScrollController _scrollController; // Define the ScrollController
   int pageNo = 0;
-
   Timer? carasouelTimer;
-
   Timer getTimer() {
     return Timer.periodic(const Duration(seconds: 3), (timer) {
       if (pageNo == 5) {
@@ -253,16 +394,17 @@ class _Page1State extends State<Page1> {
   bool showBtmAppBr = true;
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: ListView(
         controller: _scrollController,
         children: [
-          SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+          SizedBox(height: screenHeight * 0.03),
           Container(
-            margin:
-                EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.05),
-            width: MediaQuery.of(context).size.width * 0.9,
-            height: MediaQuery.of(context).size.height * 0.03,
+            margin: EdgeInsets.only(left: screenWidth * 0.05),
+            width: screenWidth * 0.9,
+            height: screenHeight * 0.03,
             child: Text(
               'Recommandés',
               style: TextStyle(
@@ -307,6 +449,16 @@ class _Page1State extends State<Page1> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15.0),
                           color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color:
+                                  Color.fromARGB(255, 0, 0, 0).withOpacity(0.1),
+                              spreadRadius: 0,
+                              blurRadius: 10,
+                              offset:
+                                  Offset(8, 2), // change the offset if needed
+                            ),
+                          ],
                         ),
                         child: Stack(
                           children: [
@@ -314,10 +466,8 @@ class _Page1State extends State<Page1> {
                               children: [
                                 Container(
                                   child: Image.asset(imagePaths[index]),
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.35,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.2,
+                                  width: screenWidth * 0.35,
+                                  height: screenHeight * 0.2,
                                 ),
                                 Expanded(
                                   child: Column(
@@ -325,10 +475,8 @@ class _Page1State extends State<Page1> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       SizedBox(
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.02),
+                                        height: screenHeight * 0.02,
+                                      ),
                                       Text(
                                         titles[0],
                                         style: TextStyle(
@@ -337,10 +485,8 @@ class _Page1State extends State<Page1> {
                                         ),
                                       ),
                                       SizedBox(
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.01),
+                                        height: screenHeight * 0.01,
+                                      ),
                                       Text(
                                         texts[0],
                                         style: TextStyle(
@@ -348,10 +494,8 @@ class _Page1State extends State<Page1> {
                                         ),
                                       ),
                                       SizedBox(
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.001),
+                                        height: screenHeight * 0.001,
+                                      ),
                                       Text(
                                         data[index],
                                         style: TextStyle(
@@ -360,10 +504,8 @@ class _Page1State extends State<Page1> {
                                         ),
                                       ),
                                       SizedBox(
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.01),
+                                        height: screenHeight * 0.01,
+                                      ),
                                       Text(
                                         prices[index],
                                         style: TextStyle(
@@ -377,8 +519,8 @@ class _Page1State extends State<Page1> {
                               ],
                             ),
                             Positioned(
-                              width: MediaQuery.of(context).size.width * 0.05,
-                              height: MediaQuery.of(context).size.height * 0.05,
+                              width: screenWidth * 0.05,
+                              height: screenHeight * 0.05,
                               bottom: 10,
                               right: 15,
                               child: Image.asset(
@@ -404,14 +546,13 @@ class _Page1State extends State<Page1> {
               ),
             ),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(5.0),
           ),
           Container(
-            margin:
-                EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.05),
-            width: MediaQuery.of(context).size.width * 0.9,
-            height: MediaQuery.of(context).size.height * 0.03,
+            margin: EdgeInsets.only(left: screenWidth * 0.05),
+            width: screenWidth * 0.9,
+            height: screenHeight * 0.03,
             child: Text(
               'Categories',
               style: TextStyle(
@@ -420,21 +561,50 @@ class _Page1State extends State<Page1> {
               ),
             ),
           ),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Image.asset(
-              'assets/images/Groupe défilant 9.png',
-              width: MediaQuery.of(context).size.width * 1,
-              height: MediaQuery.of(context).size.height * 0.1,
+          SizedBox(height: screenHeight * 0.02),
+          CarouselSlider(
+            items: images.asMap().entries.map((entry) {
+              final int index = entry.key;
+              final String image = entry.value;
+              final String title = imageTitles[index];
+              return Builder(
+                builder: (BuildContext context) {
+                  return Column(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          // Handle image tap event
+                        },
+                        child: Image.asset(
+                          image,
+                          width: 60,
+                        ),
+                      ),
+                      Text(
+                        title,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              );
+            }).toList(),
+            options: CarouselOptions(
+              height: screenHeight * 0.11,
+              autoPlay: false,
+              enlargeCenterPage: false,
+              initialPage: 2,
+              viewportFraction: 0.2,
             ),
           ),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+          SizedBox(height: screenHeight * 0.02),
           Container(
-            margin:
-                EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.05),
-            width: MediaQuery.of(context).size.width * 0.9,
-            height: MediaQuery.of(context).size.height * 0.03,
+            margin: EdgeInsets.only(left: screenWidth * 0.05),
+            width: screenWidth * 0.9,
+            height: screenHeight * 0.03,
             child: Text(
               'Les produits sont populaires',
               style: TextStyle(
@@ -443,13 +613,14 @@ class _Page1State extends State<Page1> {
               ),
             ),
           ),
+          SizedBox(height: screenHeight * 0.02),
           Align(
             child: Container(
-              width: MediaQuery.of(context).size.width * 0.75,
-              height: MediaQuery.of(context).size.height * 0.35,
+              width: screenWidth * 0.95,
+              height: screenHeight * 0.33,
               child: PageView.builder(
                 controller:
-                    PageController(initialPage: 0, viewportFraction: 0.8),
+                    PageController(initialPage: 0, viewportFraction: 0.6),
                 itemCount: 5, // Replace with the actual number of items
                 itemBuilder: (context, index) {
                   return GestureDetector(
@@ -459,35 +630,72 @@ class _Page1State extends State<Page1> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color:
+                                Color.fromARGB(255, 0, 0, 0).withOpacity(0.1),
+                            spreadRadius: 0,
+                            blurRadius: 10,
+                            offset: Offset(8, 2), // change the offset if needed
+                          ),
+                        ],
                       ),
                       child: Stack(
                         children: [
+                          Positioned.fill(
+                            left: 20,
+                            right: 20,
+                            bottom: 95,
+                            top: 20,
+                            child: Container(
+                              child: Center(
+                                child: Container(
+                                  width: 100,
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.white,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Color.fromARGB(255, 0, 130, 255)
+                                            .withOpacity(0.1),
+                                        spreadRadius: 20,
+                                        blurRadius: 10,
+                                        offset: Offset(0, 0),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
                           Row(
                             children: [
                               Expanded(
                                 child: Column(
                                   children: [
                                     SizedBox(
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.05,
+                                      height: screenHeight * 0.03,
                                     ),
                                     Align(
                                       alignment: Alignment.center,
-                                      child: Image.asset(
-                                        imagePaths2[index],
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.3,
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.15,
+                                      child: Container(
+                                        width: screenWidth * 0.35,
+                                        height: screenHeight * 0.15,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            color: Colors.white,
+                                            width: 10,
+                                          ),
+                                        ),
+                                        child: Image.asset(
+                                          imagePaths2[index],
+                                        ),
                                       ),
                                     ),
                                     SizedBox(
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.02,
+                                      height: screenHeight * 0.02,
                                     ),
                                     Container(
                                       margin:
@@ -511,7 +719,7 @@ class _Page1State extends State<Page1> {
                                           data2[index],
                                           style: TextStyle(
                                             fontWeight: FontWeight.w200,
-                                            fontSize: 14,
+                                            fontSize: 10,
                                           ),
                                         ),
                                       ),
@@ -551,6 +759,7 @@ class _Page1State extends State<Page1> {
               ),
             ),
           ),
+          SizedBox(height: screenHeight * 0.08),
         ],
       ),
       floatingActionButtonLocation: showBtmAppBr
@@ -564,21 +773,23 @@ class _Page1State extends State<Page1> {
       ),
       bottomNavigationBar: AnimatedContainer(
         child: BottomAppBar(
-          notchMargin: 10.0,
+          color: Colors.red,
+          notchMargin: 5.0,
           shape: const CircularNotchedRectangle(),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               IconButton(
                 onPressed: () {},
-                icon: const Icon(
-                  Icons.home_outlined,
-                ),
+                icon: const Icon(Icons.store),
+                color: Colors.white,
+                iconSize: 35,
               ),
               IconButton(
                 onPressed: () {},
                 icon: const Icon(
-                  CupertinoIcons.heart,
+                  CupertinoIcons.map_fill,
+                  color: Colors.white,
                 ),
               ),
               const SizedBox(
@@ -587,13 +798,15 @@ class _Page1State extends State<Page1> {
               IconButton(
                 onPressed: () {},
                 icon: const Icon(
-                  CupertinoIcons.cart,
+                  CupertinoIcons.cart_fill,
+                  color: Colors.white,
                 ),
               ),
               IconButton(
                 onPressed: () {},
                 icon: const Icon(
-                  CupertinoIcons.bell,
+                  CupertinoIcons.heart_fill,
+                  color: Colors.white,
                 ),
               ),
             ],
@@ -603,7 +816,7 @@ class _Page1State extends State<Page1> {
           milliseconds: 800,
         ),
         curve: Curves.easeInOutSine,
-        height: showBtmAppBr ? 70 : 0,
+        height: showBtmAppBr ? 50 : 0,
       ),
     );
   }
