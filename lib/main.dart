@@ -1,66 +1,3 @@
-// import 'package:flutter/material.dart';
-
-// void main() {
-//   runApp(const MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//       ),
-//       home: const MyHomePage(title: 'Flutter Demo Home Page'),
-//     );
-//   }
-// }
-
-// class MyHomePage extends StatefulWidget {
-//   const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-//   final String title;
-
-//   @override
-//   State<MyHomePage> createState() => _MyHomePageState();
-// }
-
-// class _MyHomePageState extends State<MyHomePage> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Container(
-//         decoration: BoxDecoration(
-//           image: DecorationImage(
-//             image: AssetImage("assets/images/BG.png"),
-//             fit: BoxFit.cover,
-//           ),
-//         ),
-//         child: Center(
-//           child: Column(
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             children: [
-//               Image.asset(
-//                 "assets/images/logo 2.png",
-//                 width: 200, // Adjust the width as needed
-//                 height: 200, // Adjust the height as needed
-//               ),
-//               SizedBox(height: 20), // Add some spacing between the images
-//               Image.asset(
-//                 "assets/images/BIG FOOD.png",
-//                 width: 200, // Adjust the width as needed
-//                 height: 200, // Adjust the height as needed
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
 import 'package:flutter/material.dart';
 import 'page_3.dart';
 
@@ -134,7 +71,8 @@ class _SplashPageState extends State<SplashPage> {
                 ],
               ),
             ),
-            Center(
+            Container(
+              alignment: Alignment.bottomCenter,
               child: CircularProgressIndicator(),
             ),
           ],

@@ -1,6 +1,6 @@
-import 'dart:ui';
 import 'dart:async';
-import 'package:flutter/gestures.dart';
+import 'package:big_food/page_10.dart';
+import 'package:big_food/page_6.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
@@ -41,7 +41,7 @@ class _Page11State extends State<Page11> {
         preferredSize: Size.fromHeight(140),
         child: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.red,
+          backgroundColor: Color(0xFFFF0000),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(40),
@@ -131,7 +131,7 @@ class _Page11State extends State<Page11> {
         ),
       ),
       drawer: Drawer(
-        backgroundColor: Colors.red,
+        backgroundColor: Color(0xFFFF0000),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomRight: Radius.circular(40),
@@ -141,32 +141,48 @@ class _Page11State extends State<Page11> {
           children: [
             SizedBox(height: screenHeight * 0.05),
             DrawerHeader(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Stack(
                 children: [
-                  SizedBox(height: screenHeight * 0.01),
-                  Text(
-                    'Bonjour',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: screenHeight * 0.01),
+                      Text(
+                        'Bonjour',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        'Saif Yahyaoui',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                        ),
+                      ),
+                      SizedBox(height: 4),
+                      Text(
+                        'saif.yahyaoui@esprit.tn',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 8),
-                  Text(
-                    'John Doe',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                    ),
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    'johndoe@example.com',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
+                  Positioned(
+                    bottom: 20,
+                    right: 0,
+                    child: Container(
+                      width: screenWidth * 0.23,
+                      height: screenHeight * 0.13,
+                      child: CircleAvatar(
+                        backgroundImage:
+                            AssetImage("assets/images/profile.png"),
+                      ),
                     ),
                   ),
                 ],
@@ -175,13 +191,18 @@ class _Page11State extends State<Page11> {
             ListTile(
               leading: Image.asset('assets/images/user.png'),
               title: Text(
-                'Home',
+                'Profile',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
                 ),
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Page10()),
+                );
+              },
             ),
             ListTile(
               leading: Image.asset('assets/images/cart.png'),
@@ -258,7 +279,12 @@ class _Page11State extends State<Page11> {
                   fontSize: 20,
                 ),
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Page6()),
+                );
+              },
             ),
           ],
         ),
@@ -533,7 +559,7 @@ class _Page1State extends State<Page1> {
                               right: 15,
                               child: Icon(
                                 Icons.favorite,
-                                color: Colors.red,
+                                color: Color(0xFFFF0000),
                               ),
                             ),
                           ],
@@ -618,9 +644,9 @@ class _Page1State extends State<Page1> {
             child: Container(
               width: screenWidth * 0.95,
               height: screenHeight * 0.33,
-              child: PageView.builder(
+              child: GridView.builder(
                 controller:
-                    PageController(initialPage: 0, viewportFraction: 0.6),
+                    PageController(initialPage: 0, viewportFraction: 0.8),
                 itemCount: 5, // Replace with the actual number of items
                 itemBuilder: (context, index) {
                   return GestureDetector(
@@ -646,12 +672,12 @@ class _Page1State extends State<Page1> {
                             left: 20,
                             right: 20,
                             bottom: 95,
-                            top: 20,
+                            top: 15,
                             child: Container(
                               child: Center(
                                 child: Container(
-                                  width: 100,
-                                  height: 100,
+                                  width: 110,
+                                  height: 110,
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     color: Colors.white,
@@ -659,8 +685,8 @@ class _Page1State extends State<Page1> {
                                       BoxShadow(
                                         color: Color.fromARGB(255, 0, 130, 255)
                                             .withOpacity(0.1),
-                                        spreadRadius: 20,
-                                        blurRadius: 10,
+                                        spreadRadius: 18,
+                                        blurRadius: 15,
                                         offset: Offset(0, 0),
                                       ),
                                     ],
@@ -680,8 +706,8 @@ class _Page1State extends State<Page1> {
                                     Align(
                                       alignment: Alignment.center,
                                       child: Container(
-                                        width: screenWidth * 0.35,
-                                        height: screenHeight * 0.15,
+                                        width: screenWidth * 0.29,
+                                        height: screenHeight * 0.16,
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,
                                           border: Border.all(
@@ -691,6 +717,7 @@ class _Page1State extends State<Page1> {
                                         ),
                                         child: Image.asset(
                                           imagePaths2[index],
+                                          fit: BoxFit.contain,
                                         ),
                                       ),
                                     ),
@@ -748,7 +775,7 @@ class _Page1State extends State<Page1> {
                             right: 15,
                             child: Icon(
                               Icons.favorite,
-                              color: Colors.red,
+                              color: Color(0xFFFF0000),
                             ),
                           ),
                         ],
@@ -756,6 +783,10 @@ class _Page1State extends State<Page1> {
                     ),
                   );
                 },
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.7,
+                 ),
               ),
             ),
           ),
@@ -766,14 +797,16 @@ class _Page1State extends State<Page1> {
           ? FloatingActionButtonLocation.centerDocked
           : FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
+        materialTapTargetSize: MaterialTapTargetSize.padded,
         onPressed: () {},
         child: const Icon(
           Icons.home_filled,
+          size: 30,
         ),
       ),
       bottomNavigationBar: AnimatedContainer(
         child: BottomAppBar(
-          color: Colors.red,
+          color: Color(0xFFFF0000),
           notchMargin: 5.0,
           shape: const CircularNotchedRectangle(),
           child: Row(

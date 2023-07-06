@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:big_food/page_3.dart';
 import 'package:big_food/page_6.dart';
 
 class Page5 extends StatelessWidget {

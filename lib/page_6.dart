@@ -290,10 +290,6 @@ class _Page6State extends State<Page6> {
                         borderRadius: BorderRadius.circular(
                           MediaQuery.of(context).size.width * 0.048,
                         ),
-                        side: BorderSide(
-                          color: Color(0xFF707070),
-                          width: 0.5,
-                        ),
                       ),
                       primary: Colors.white, // Set the button color to white
                     ),
@@ -338,10 +334,6 @@ class _Page6State extends State<Page6> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(
                           MediaQuery.of(context).size.width * 0.048,
-                        ),
-                        side: BorderSide(
-                          color: Color(0xFF707070),
-                          width: 0.5,
                         ),
                       ),
                       primary: Colors.white, // Set the button color to white

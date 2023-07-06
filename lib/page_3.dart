@@ -1,5 +1,5 @@
+import 'package:big_food/page_6.dart';
 import 'package:flutter/material.dart';
-import 'package:big_food/main.dart';
 import 'package:big_food/page_4.dart';
 
 class Page3 extends StatelessWidget {
@@ -93,7 +93,7 @@ class Page3 extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => MyApp()),
+                    MaterialPageRoute(builder: (context) => Page6()),
                   );
                 },
                 child: Container(

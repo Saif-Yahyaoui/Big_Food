@@ -1,4 +1,3 @@
-import 'package:big_food/page_8.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
