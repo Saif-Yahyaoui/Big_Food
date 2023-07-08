@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:big_food/page_10.dart';
+import 'package:big_food/page_18.dart';
 import 'package:big_food/page_6.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,10 +10,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 class Page11 extends StatefulWidget {
   const Page11({Key? key}) : super(key: key);
   @override
-  _Page11State createState() => _Page11State();
+  Page11State createState() => Page11State();
 }
 
-class _Page11State extends State<Page11> {
+class Page11State extends State<Page11> {
   int _selectedIndex = 0;
   bool obscureText = true;
   bool showPrefix = true;
@@ -22,11 +23,10 @@ class _Page11State extends State<Page11> {
     });
   }
 
-  // Define your pages or screens here
-  List<Widget> _pages = [
-    Page1(),
+  List<Widget> pages = [
+    const Page1(),
   ];
-  void _onTabSelected(int index) {
+  void onTabSelected(int index) {
     setState(() {
       _selectedIndex = index;
     });
@@ -41,8 +41,8 @@ class _Page11State extends State<Page11> {
         preferredSize: Size.fromHeight(140),
         child: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Color(0xFFFF0000),
-          shape: RoundedRectangleBorder(
+          backgroundColor: const Color(0xFFFF0000),
+          shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(40),
               bottomRight: Radius.circular(40),
@@ -59,15 +59,14 @@ class _Page11State extends State<Page11> {
                       return IconButton(
                         color: Colors.white,
                         iconSize: 32,
-                        icon: Icon(Icons.menu),
+                        icon: const Icon(Icons.menu),
                         onPressed: () {
-                          // Open the drawer when the button is pressed
                           Scaffold.of(context).openDrawer();
                         },
                       );
                     },
                   ),
-                  SizedBox(width: 8),
+                  SizedBox(width: screenWidth * 0.01),
                   Text(
                     'Big Food',
                     style: TextStyle(
@@ -84,12 +83,10 @@ class _Page11State extends State<Page11> {
           ),
           actions: [
             Padding(
-              padding: EdgeInsets.only(right: 16.0, top: 12),
+              padding: const EdgeInsets.only(right: 16.0, top: 12),
               child: IconButton(
-                onPressed: () {
-                  // Handle bell icon press
-                },
-                icon: ImageIcon(
+                onPressed: () {},
+                icon: const ImageIcon(
                   AssetImage('assets/images/bell.png'),
                   color: Colors.white,
                 ),
@@ -97,9 +94,9 @@ class _Page11State extends State<Page11> {
             ),
           ],
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(0),
+            preferredSize: const Size.fromHeight(0),
             child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+              margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
               height: 30,
               child: TextField(
                 decoration: InputDecoration(
@@ -113,10 +110,10 @@ class _Page11State extends State<Page11> {
                   ),
                   hintText: 'Que vas-tu trouver?',
                   hintStyle: TextStyle(
-                    color: Color(0xff707070).withOpacity(0.7),
+                    color: const Color(0xff707070).withOpacity(0.7),
                     fontSize: screenWidth * 0.035,
                     height: 0.6,
-                    fontFamily: 'Poppins Regular',
+                    fontFamily: 'Poppins-Regular',
                   ),
                   filled: true,
                   fillColor: Colors.white,
@@ -131,8 +128,8 @@ class _Page11State extends State<Page11> {
         ),
       ),
       drawer: Drawer(
-        backgroundColor: Color(0xFFFF0000),
-        shape: RoundedRectangleBorder(
+        backgroundColor: const Color(0xFFFF0000),
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomRight: Radius.circular(40),
           ),
@@ -147,24 +144,24 @@ class _Page11State extends State<Page11> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: screenHeight * 0.01),
-                      Text(
-                        'Bonjour',
+                      const Text(
+                        'Bonjour Saif !',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 8),
-                      Text(
+                      SizedBox(height: screenHeight * 0.02),
+                      const Text(
                         'Saif Yahyaoui',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 18,
+                          fontSize: 24,
                         ),
                       ),
                       SizedBox(height: 4),
-                      Text(
+                      const Text(
                         'saif.yahyaoui@esprit.tn',
                         style: TextStyle(
                           color: Colors.white,
@@ -174,12 +171,12 @@ class _Page11State extends State<Page11> {
                     ],
                   ),
                   Positioned(
-                    bottom: 20,
+                    bottom: 30,
                     right: 0,
-                    child: Container(
-                      width: screenWidth * 0.23,
-                      height: screenHeight * 0.13,
-                      child: CircleAvatar(
+                    child: SizedBox(
+                      width: screenWidth * 0.2,
+                      height: screenHeight * 0.1,
+                      child: const CircleAvatar(
                         backgroundImage:
                             AssetImage("assets/images/profile.png"),
                       ),
@@ -190,7 +187,7 @@ class _Page11State extends State<Page11> {
             ),
             ListTile(
               leading: Image.asset('assets/images/user.png'),
-              title: Text(
+              title: const Text(
                 'Profile',
                 style: TextStyle(
                   color: Colors.white,
@@ -200,13 +197,13 @@ class _Page11State extends State<Page11> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Page10()),
+                  MaterialPageRoute(builder: (context) => const Page10()),
                 );
               },
             ),
             ListTile(
               leading: Image.asset('assets/images/cart.png'),
-              title: Text(
+              title: const Text(
                 'Mes commandes',
                 style: TextStyle(
                   color: Colors.white,
@@ -217,7 +214,7 @@ class _Page11State extends State<Page11> {
             ),
             ListTile(
               leading: Image.asset('assets/images/gift.png'),
-              title: Text(
+              title: const Text(
                 'Parrainez vos amis',
                 style: TextStyle(
                   color: Colors.white,
@@ -228,7 +225,7 @@ class _Page11State extends State<Page11> {
             ),
             ListTile(
               leading: Image.asset('assets/images/promo.png'),
-              title: Text(
+              title: const Text(
                 'Code promo',
                 style: TextStyle(
                   color: Colors.white,
@@ -239,7 +236,7 @@ class _Page11State extends State<Page11> {
             ),
             ListTile(
               leading: Image.asset('assets/images/faq.png'),
-              title: Text(
+              title: const Text(
                 'F.A.Q',
                 style: TextStyle(
                   color: Colors.white,
@@ -250,7 +247,7 @@ class _Page11State extends State<Page11> {
             ),
             ListTile(
               leading: Image.asset('assets/images/setting.png'),
-              title: Text(
+              title: const Text(
                 'Paramétre',
                 style: TextStyle(
                   color: Colors.white,
@@ -261,7 +258,7 @@ class _Page11State extends State<Page11> {
             ),
             ListTile(
               leading: Image.asset('assets/images/info.png'),
-              title: Text(
+              title: const Text(
                 'Qui Somme Nous',
                 style: TextStyle(
                   color: Colors.white,
@@ -272,7 +269,7 @@ class _Page11State extends State<Page11> {
             ),
             ListTile(
               leading: Image.asset('assets/images/logout.png'),
-              title: Text(
+              title: const Text(
                 'Déconnexion',
                 style: TextStyle(
                   color: Colors.white,
@@ -282,24 +279,26 @@ class _Page11State extends State<Page11> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Page6()),
+                  MaterialPageRoute(builder: (context) => const Page6()),
                 );
               },
             ),
           ],
         ),
       ),
-      body: _pages[_selectedIndex],
+      body: pages[_selectedIndex],
     );
   }
 }
 
 class Page1 extends StatefulWidget {
+  const Page1({super.key});
+
   @override
-  _Page1State createState() => _Page1State();
+  Page1State createState() => Page1State();
 }
 
-class _Page1State extends State<Page1> {
+class Page1State extends State<Page1> {
   List<String> imagePaths = [
     'assets/images/cocktail1.png',
     'assets/images/cocktail2.png',
@@ -361,7 +360,6 @@ class _Page1State extends State<Page1> {
     'assets/images/burger2.png',
     'assets/images/pizza.png',
     'assets/images/burrito.png',
-    // Add more image paths as needed
   ];
   final List<String> imageTitles = [
     'Tacos',
@@ -369,10 +367,9 @@ class _Page1State extends State<Page1> {
     'Burger',
     'Pizza',
     'Burritos',
-    // Add more titles corresponding to the images
   ];
   late final PageController pageController;
-  late final ScrollController _scrollController; // Define the ScrollController
+  late final ScrollController _scrollController;
   int pageNo = 0;
   Timer? carasouelTimer;
   Timer getTimer() {
@@ -392,7 +389,7 @@ class _Page1State extends State<Page1> {
   @override
   void initState() {
     pageController = PageController(initialPage: 0, viewportFraction: 0.8);
-    _scrollController = ScrollController(); // Initialize the ScrollController
+    _scrollController = ScrollController();
     carasouelTimer = getTimer();
     _scrollController.addListener(() {
       if (_scrollController.position.userScrollDirection ==
@@ -431,7 +428,7 @@ class _Page1State extends State<Page1> {
             margin: EdgeInsets.only(left: screenWidth * 0.05),
             width: screenWidth * 0.9,
             height: screenHeight * 0.03,
-            child: Text(
+            child: const Text(
               'Recommandés',
               style: TextStyle(
                 fontSize: 20,
@@ -477,12 +474,11 @@ class _Page1State extends State<Page1> {
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(
-                              color:
-                                  Color.fromARGB(255, 0, 0, 0).withOpacity(0.1),
+                              color: const Color.fromARGB(255, 0, 0, 0)
+                                  .withOpacity(0.1),
                               spreadRadius: 0,
                               blurRadius: 10,
-                              offset:
-                                  Offset(8, 2), // change the offset if needed
+                              offset: const Offset(8, 2),
                             ),
                           ],
                         ),
@@ -490,10 +486,8 @@ class _Page1State extends State<Page1> {
                           children: [
                             Row(
                               children: [
-                                Container(
+                                Expanded(
                                   child: Image.asset(imagePaths[index]),
-                                  width: screenWidth * 0.35,
-                                  height: screenHeight * 0.2,
                                 ),
                                 Expanded(
                                   child: Column(
@@ -505,7 +499,7 @@ class _Page1State extends State<Page1> {
                                       ),
                                       Text(
                                         titles[0],
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontWeight: FontWeight.w200,
                                           fontSize: 16,
                                         ),
@@ -515,7 +509,7 @@ class _Page1State extends State<Page1> {
                                       ),
                                       Text(
                                         texts[0],
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontSize: 14,
                                         ),
                                       ),
@@ -524,7 +518,7 @@ class _Page1State extends State<Page1> {
                                       ),
                                       Text(
                                         data[index],
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontWeight: FontWeight.w200,
                                           fontSize: 14,
                                         ),
@@ -534,7 +528,7 @@ class _Page1State extends State<Page1> {
                                       ),
                                       Text(
                                         prices[index],
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 18,
                                         ),
@@ -554,7 +548,7 @@ class _Page1State extends State<Page1> {
                                 fit: BoxFit.contain,
                               ),
                             ),
-                            Positioned(
+                            const Positioned(
                               top: 10,
                               right: 15,
                               child: Icon(
@@ -572,14 +566,11 @@ class _Page1State extends State<Page1> {
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.all(5.0),
-          ),
           Container(
             margin: EdgeInsets.only(left: screenWidth * 0.05),
             width: screenWidth * 0.9,
             height: screenHeight * 0.03,
-            child: Text(
+            child: const Text(
               'Categories',
               style: TextStyle(
                 fontSize: 20,
@@ -598,9 +589,7 @@ class _Page1State extends State<Page1> {
                   return Column(
                     children: [
                       GestureDetector(
-                        onTap: () {
-                          // Handle image tap event
-                        },
+                        onTap: () {},
                         child: Image.asset(
                           image,
                           width: 60,
@@ -608,7 +597,7 @@ class _Page1State extends State<Page1> {
                       ),
                       Text(
                         title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
                         ),
@@ -631,7 +620,7 @@ class _Page1State extends State<Page1> {
             margin: EdgeInsets.only(left: screenWidth * 0.05),
             width: screenWidth * 0.9,
             height: screenHeight * 0.03,
-            child: Text(
+            child: const Text(
               'Les produits sont populaires',
               style: TextStyle(
                 fontSize: 24,
@@ -641,28 +630,28 @@ class _Page1State extends State<Page1> {
           ),
           SizedBox(height: screenHeight * 0.02),
           Align(
-            child: Container(
+            child: SizedBox(
               width: screenWidth * 0.95,
               height: screenHeight * 0.33,
-              child: GridView.builder(
-                controller:
-                    PageController(initialPage: 0, viewportFraction: 0.8),
-                itemCount: 5, // Replace with the actual number of items
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 5,
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {},
                     child: Container(
+                      width: screenWidth * 0.5,
                       margin: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.white,
                         boxShadow: [
                           BoxShadow(
-                            color:
-                                Color.fromARGB(255, 0, 0, 0).withOpacity(0.1),
+                            color: const Color.fromARGB(255, 0, 0, 0)
+                                .withOpacity(0.1),
                             spreadRadius: 0,
                             blurRadius: 10,
-                            offset: Offset(8, 2), // change the offset if needed
+                            offset: const Offset(8, 2),
                           ),
                         ],
                       ),
@@ -673,24 +662,23 @@ class _Page1State extends State<Page1> {
                             right: 20,
                             bottom: 95,
                             top: 15,
-                            child: Container(
-                              child: Center(
-                                child: Container(
-                                  width: 110,
-                                  height: 110,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.white,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Color.fromARGB(255, 0, 130, 255)
-                                            .withOpacity(0.1),
-                                        spreadRadius: 18,
-                                        blurRadius: 15,
-                                        offset: Offset(0, 0),
-                                      ),
-                                    ],
-                                  ),
+                            child: Center(
+                              child: Container(
+                                width: 110,
+                                height: 110,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color:
+                                          const Color.fromARGB(255, 0, 130, 255)
+                                              .withOpacity(0.1),
+                                      spreadRadius: 18,
+                                      blurRadius: 15,
+                                      offset: const Offset(0, 0),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -712,7 +700,7 @@ class _Page1State extends State<Page1> {
                                           shape: BoxShape.circle,
                                           border: Border.all(
                                             color: Colors.white,
-                                            width: 10,
+                                            width: 13,
                                           ),
                                         ),
                                         child: Image.asset(
@@ -725,26 +713,26 @@ class _Page1State extends State<Page1> {
                                       height: screenHeight * 0.02,
                                     ),
                                     Container(
-                                      margin:
-                                          EdgeInsets.only(top: 4.0, left: 25),
+                                      margin: const EdgeInsets.only(
+                                          top: 4.0, left: 25),
                                       child: Align(
                                         alignment: Alignment.centerLeft,
                                         child: Text(
                                           texts2[index],
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontSize: 14,
                                           ),
                                         ),
                                       ),
                                     ),
                                     Container(
-                                      margin:
-                                          EdgeInsets.only(top: 2.0, left: 25),
+                                      margin: const EdgeInsets.only(
+                                          top: 2.0, left: 25),
                                       child: Align(
                                         alignment: Alignment.centerLeft,
                                         child: Text(
                                           data2[index],
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontWeight: FontWeight.w200,
                                             fontSize: 10,
                                           ),
@@ -752,13 +740,13 @@ class _Page1State extends State<Page1> {
                                       ),
                                     ),
                                     Container(
-                                      margin:
-                                          EdgeInsets.only(top: 4.0, left: 25),
+                                      margin: const EdgeInsets.only(
+                                          top: 4.0, left: 25),
                                       child: Align(
                                         alignment: Alignment.centerLeft,
                                         child: Text(
                                           prices2[index],
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 18,
                                           ),
@@ -770,7 +758,7 @@ class _Page1State extends State<Page1> {
                               ),
                             ],
                           ),
-                          Positioned(
+                          const Positioned(
                             top: 10,
                             right: 15,
                             child: Icon(
@@ -783,10 +771,6 @@ class _Page1State extends State<Page1> {
                     ),
                   );
                 },
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 0.7,
-                 ),
               ),
             ),
           ),
@@ -800,13 +784,18 @@ class _Page1State extends State<Page1> {
         materialTapTargetSize: MaterialTapTargetSize.padded,
         onPressed: () {},
         child: const Icon(
-          Icons.home_filled,
-          size: 30,
+          Icons.home,
+          size: 36,
         ),
       ),
       bottomNavigationBar: AnimatedContainer(
+        duration: const Duration(
+          milliseconds: 800,
+        ),
+        curve: Curves.easeInOutSine,
+        height: showBtmAppBr ? 50 : 0,
         child: BottomAppBar(
-          color: Color(0xFFFF0000),
+          color: const Color(0xFFFF0000),
           notchMargin: 5.0,
           shape: const CircularNotchedRectangle(),
           child: Row(
@@ -829,7 +818,14 @@ class _Page1State extends State<Page1> {
                 width: 50,
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Page18(),
+                    ),
+                  );
+                },
                 icon: const Icon(
                   CupertinoIcons.cart_fill,
                   color: Colors.white,
@@ -845,11 +841,6 @@ class _Page1State extends State<Page1> {
             ],
           ),
         ),
-        duration: const Duration(
-          milliseconds: 800,
-        ),
-        curve: Curves.easeInOutSine,
-        height: showBtmAppBr ? 50 : 0,
       ),
     );
   }

@@ -72,8 +72,8 @@ class _SplashPageState extends State<SplashPage> {
               ),
             ),
             Container(
-              alignment: Alignment.bottomCenter,
-              child: CircularProgressIndicator(),
+              margin: const EdgeInsets.only(top: 520, left: 200),
+              child: const CircularProgressIndicator(),
             ),
           ],
         ),

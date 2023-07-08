@@ -120,15 +120,16 @@ class Page10State extends State<Page10> {
                             child: CircleAvatar(
                               backgroundImage: pickedImage != null
                                   ? FileImage(pickedImage!)
-                                  : AssetImage("assets/images/profile.png")
+                                  : const AssetImage(
+                                          "assets/images/profile.png")
                                       as ImageProvider,
                             ),
                           ),
                           Positioned(
                             bottom: 0,
                             right: 0,
-                            width: screenWidth * 0.06,
-                            height: screenHeight * 0.03,
+                            width: screenWidth * 0.045,
+                            height: screenHeight * 0.025,
                             child: GestureDetector(
                               onTap: _pickImage,
                               child: Image.asset(
@@ -144,7 +145,7 @@ class Page10State extends State<Page10> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: screenHeight * 0.025),
+                      SizedBox(height: screenHeight * 0.015),
                       Text(
                         'Saif Yahyaoui',
                         style: TextStyle(
@@ -153,7 +154,7 @@ class Page10State extends State<Page10> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: screenHeight * 0.01),
+                      SizedBox(height: screenHeight * 0.005),
                       Text(
                         'saif.yahyaoui@esprit.tn',
                         style: TextStyle(
@@ -185,10 +186,6 @@ class Page10State extends State<Page10> {
                     MaterialPageRoute(builder: (context) => Page6()),
                   );
                 },
-                child: Text(
-                  'Enregistrer',
-                  style: TextStyle(fontSize: screenWidth * 0.04),
-                ),
                 style: ElevatedButton.styleFrom(
                   primary: Color(0xFFFF0000),
                   padding: EdgeInsets.symmetric(vertical: 20, horizontal: 100),
@@ -197,6 +194,10 @@ class Page10State extends State<Page10> {
                       screenWidth * 0.03,
                     ),
                   ),
+                ),
+                child: Text(
+                  'Enregistrer',
+                  style: TextStyle(fontSize: screenWidth * 0.04),
                 ),
               ),
               SizedBox(height: screenHeight * 0.09),

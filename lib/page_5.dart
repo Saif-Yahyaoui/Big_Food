@@ -60,8 +60,8 @@ class Page5 extends StatelessWidget {
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.065),
               Container(
-                width: MediaQuery.of(context).size.width * 0.8,
-                height: MediaQuery.of(context).size.height * 0.072,
+                width: MediaQuery.of(context).size.width * 0.85,
+                height: MediaQuery.of(context).size.height * 0.075,
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -69,12 +69,17 @@ class Page5 extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => Page6()),
                     );
                   },
-                  child: Text(
-                    'Commencer',
-                    style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.width * 0.05,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    alignment: Alignment.center,
+                    child: Text(
+                      'Commencer',
+                      style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.width * 0.05,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                   style: ElevatedButton.styleFrom(

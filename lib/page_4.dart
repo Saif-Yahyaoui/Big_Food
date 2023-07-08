@@ -1,6 +1,5 @@
 import 'package:big_food/page_6.dart';
 import 'package:flutter/material.dart';
-import 'package:big_food/page_3.dart';
 import 'package:big_food/page_5.dart';
 
 class Page4 extends StatelessWidget {
@@ -72,10 +71,10 @@ class Page4 extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.037),
               Container(
-                width: MediaQuery.of(context).size.width * 0.8,
-                height: MediaQuery.of(context).size.height * 0.073,
+                width: MediaQuery.of(context).size.width * 0.85,
+                height: MediaQuery.of(context).size.height * 0.075,
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -83,12 +82,17 @@ class Page4 extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => Page5()),
                     );
                   },
-                  child: Text(
-                    'Suivant',
-                    style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.width * 0.05,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    alignment: Alignment.center,
+                    child: Text(
+                      'Suivant',
+                      style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.width * 0.05,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
