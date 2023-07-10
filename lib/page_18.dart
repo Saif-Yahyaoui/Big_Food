@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'package:big_food/mapscreen.dart';
 import 'package:big_food/page_11.dart';
+import 'package:big_food/page_12.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong2/latlong.dart';
-import 'package:geolocator/geolocator.dart';
+
+import 'package:flutter/cupertino.dart';
 
 class Page18 extends StatefulWidget {
   const Page18({Key? key}) : super(key: key);
@@ -655,19 +655,26 @@ class Page18State extends State<Page18> {
           ? FloatingActionButtonLocation.centerDocked
           : FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
+        materialTapTargetSize: MaterialTapTargetSize.padded,
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Page11()),
+            MaterialPageRoute(builder: (context) => const Page11()),
           );
         },
         child: const Icon(
-          Icons.home_filled,
+          Icons.home,
+          size: 36,
         ),
       ),
       bottomNavigationBar: AnimatedContainer(
+        duration: const Duration(
+          milliseconds: 800,
+        ),
+        curve: Curves.easeInOutSine,
+        height: showBtmAppBr ? 50 : 0,
         child: BottomAppBar(
-          color: Color(0xFFFF0000),
+          color: const Color(0xFFFF0000),
           notchMargin: 5.0,
           shape: const CircularNotchedRectangle(),
           child: Row(
@@ -680,9 +687,14 @@ class Page18State extends State<Page18> {
                 iconSize: 35,
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Page12()),
+                  );
+                },
                 icon: const Icon(
-                  Icons.map,
+                  CupertinoIcons.map_fill,
                   color: Colors.white,
                 ),
               ),
@@ -690,27 +702,29 @@ class Page18State extends State<Page18> {
                 width: 50,
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Page18(),
+                    ),
+                  );
+                },
                 icon: const Icon(
-                  Icons.shopping_cart,
+                  CupertinoIcons.cart_fill,
                   color: Colors.white,
                 ),
               ),
               IconButton(
                 onPressed: () {},
                 icon: const Icon(
-                  Icons.favorite,
+                  CupertinoIcons.heart_fill,
                   color: Colors.white,
                 ),
               ),
             ],
           ),
         ),
-        duration: const Duration(
-          milliseconds: 800,
-        ),
-        curve: Curves.easeInOutSine,
-        height: showBtmAppBr ? 50 : 0,
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:big_food/page_10.dart';
+import 'package:big_food/page_12.dart';
 import 'package:big_food/page_18.dart';
 import 'package:big_food/page_6.dart';
 import 'package:flutter/material.dart';
@@ -210,7 +211,12 @@ class Page11State extends State<Page11> {
                   fontSize: 20,
                 ),
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Page18()),
+                );
+              },
             ),
             ListTile(
               leading: Image.asset('assets/images/gift.png'),
@@ -808,8 +814,12 @@ class Page1State extends State<Page1> {
                 iconSize: 35,
               ),
               IconButton(
-                onPressed: () {},
-                icon: const Icon(
+onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Page12()),
+                  );
+                },                icon: const Icon(
                   CupertinoIcons.map_fill,
                   color: Colors.white,
                 ),
