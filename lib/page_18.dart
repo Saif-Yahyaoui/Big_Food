@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:big_food/mapscreen.dart';
 import 'package:big_food/page_11.dart';
 import 'package:big_food/page_12.dart';
+import 'package:big_food/page_17.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -716,7 +717,14 @@ class Page18State extends State<Page18> {
                 ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Page17(),
+                    ),
+                  );
+                },
                 icon: const Icon(
                   CupertinoIcons.heart_fill,
                   color: Colors.white,

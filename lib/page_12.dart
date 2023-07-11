@@ -1,5 +1,6 @@
 import 'package:big_food/mapscreen.dart';
 import 'package:big_food/page_11.dart';
+import 'package:big_food/page_17.dart';
 import 'package:big_food/page_18.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -390,7 +391,14 @@ class Page12State extends State<Page12> {
                 ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Page17(),
+                    ),
+                  );
+                },
                 icon: const Icon(
                   CupertinoIcons.heart_fill,
                   color: Colors.white,

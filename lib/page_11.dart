@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:big_food/page_10.dart';
 import 'package:big_food/page_12.dart';
+import 'package:big_food/page_17.dart';
 import 'package:big_food/page_18.dart';
 import 'package:big_food/page_6.dart';
 import 'package:flutter/material.dart';
@@ -814,12 +815,13 @@ class Page1State extends State<Page1> {
                 iconSize: 35,
               ),
               IconButton(
-onPressed: () {
+                onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const Page12()),
                   );
-                },                icon: const Icon(
+                },
+                icon: const Icon(
                   CupertinoIcons.map_fill,
                   color: Colors.white,
                 ),
@@ -842,7 +844,14 @@ onPressed: () {
                 ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Page17(),
+                    ),
+                  );
+                },
                 icon: const Icon(
                   CupertinoIcons.heart_fill,
                   color: Colors.white,
