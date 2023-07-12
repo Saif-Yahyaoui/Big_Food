@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:big_food/page_10.dart';
 import 'package:big_food/page_11.dart';
 import 'package:big_food/page_12.dart';
-import 'package:big_food/page_16.dart';
+import 'package:big_food/page_17.dart';
 import 'package:big_food/page_18.dart';
 import 'package:big_food/page_6.dart';
 import 'package:flutter/material.dart';
@@ -10,13 +10,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Page17 extends StatefulWidget {
-  const Page17({Key? key}) : super(key: key);
+class Page16 extends StatefulWidget {
+  const Page16({Key? key}) : super(key: key);
   @override
-  Page17State createState() => Page17State();
+  Page16State createState() => Page16State();
 }
 
-class Page17State extends State<Page17> {
+class Page16State extends State<Page16> {
   int _selectedIndex = 0;
   bool obscureText = true;
   bool showPrefix = true;
@@ -27,7 +27,7 @@ class Page17State extends State<Page17> {
   }
 
   List<Widget> pages = [
-    const Page1(),
+    Page1(),
   ];
   void onTabSelected(int index) {
     setState(() {
@@ -317,43 +317,21 @@ class Page17State extends State<Page17> {
 }
 
 class Page1 extends StatefulWidget {
-  const Page1({super.key});
+  const Page1({Key? key}) : super(key: key);
 
   @override
   Page1State createState() => Page1State();
 }
 
 class Page1State extends State<Page1> {
-  List<String> image = [
-    'assets/images/food1.png',
-    'assets/images/food2.png',
-    'assets/images/food3.png',
-    'assets/images/food4.png',
-    'assets/images/food5.png',
-  ];
-
-  List<String> title = [
-    'Korean Salede',
-    'Korean Sushi',
-    'Vegan Salade',
-    'Egg Salade',
-    'Korean Salede',
-  ];
-
-  List<String> subTitle = [
-    'Sushi . Korean Sushi',
-  ];
-
-  List<String> rating = [
-    '4.9(124 ratings)',
-  ];
-  List<String> location = [
-    'No 03, 4th Lane, Newyork',
-  ];
-
   late final PageController pageController;
   late final ScrollController _scrollController;
   int pageNo = 0;
+  late List<bool> isSelected = List.generate(3, (_) => false);
+  // RangeValues _selectedRange = const RangeValues(0, 200);
+
+  // OverlayEntry? overlayEntry;
+  // OverlayEntry? overlayEntry2;
 
   @override
   void initState() {
@@ -371,6 +349,7 @@ class Page1State extends State<Page1> {
         });
       }
     });
+
     super.initState();
   }
 
@@ -382,6 +361,46 @@ class Page1State extends State<Page1> {
   }
 
   bool showBtmAppBr = true;
+
+  void _selectButton(int index) {
+    setState(() {
+      for (int buttonIndex = 0;
+          buttonIndex < isSelected.length;
+          buttonIndex++) {
+        isSelected[buttonIndex] = (buttonIndex == index);
+      }
+    });
+  }
+
+  // void _showTooltip(BuildContext context, double value) {
+  //   final tooltipValue = '\$${value.toInt().toString()}';
+
+  //   final overlayEntry = OverlayEntry(
+  //     builder: (context) => Positioned(
+  //       top: 400, // Adjust the vertical position as desired
+  //       left: value / 200 * MediaQuery.of(context).size.width,
+  //       child: Tooltip(
+  //         message: tooltipValue,
+  //         child: Container(
+  //           decoration: BoxDecoration(
+  //             borderRadius: BorderRadius.circular(8),
+  //             color: Colors.black.withOpacity(0.6),
+  //           ),
+  //           padding: const EdgeInsets.all(4),
+  //           child: Text(
+  //             tooltipValue,
+  //             style: const TextStyle(
+  //               color: Colors.white,
+  //               fontWeight: FontWeight.bold,
+  //             ),
+  //           ),
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  //   Overlay.of(context)?.insert(overlayEntry);
+  // }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -395,284 +414,233 @@ class Page1State extends State<Page1> {
             children: [
               Container(
                 margin: EdgeInsets.only(
-                    left: screenWidth * 0.05, top: screenHeight * 0.005),
-                width: screenWidth * 0.12,
+                  left: screenWidth * 0.05,
+                  top: screenHeight * 0.005,
+                ),
+                width: screenWidth * 0.18,
                 height: screenHeight * 0.03,
                 child: const Text(
-                  'Filter:',
+                  'Category',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              Container(
-                width: screenWidth * 0.24,
+              SizedBox(width: screenWidth * 0.6),
+              SizedBox(
+                width: screenWidth * 0.1,
                 height: screenHeight * 0.03,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 245, 245, 245),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Stack(
-                  children: [
-                    const Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Hamburger ',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 13,
-                          color: Color(0xFF989898),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      width: screenWidth * 0.026,
-                      height: screenHeight * 0.017,
-                      right: 6,
-                      top: 6,
-                      child: GestureDetector(
-                        onTap: () {
-                          // Add your onTap logic here
-                        },
-                        child: SvgPicture.asset(
-                          "assets/images/x.svg",
-                          width: screenWidth * 0.04,
-                          height: screenHeight * 0.03,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(width: screenWidth * 0.02),
-              Container(
-                width: screenWidth * 0.24,
-                height: screenHeight * 0.03,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 245, 245, 245),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Stack(
-                  children: [
-                    const Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Pancakes',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 13,
-                          color: Color(0xFF989898),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      width: screenWidth * 0.026,
-                      height: screenHeight * 0.017,
-                      right: 6,
-                      top: 6,
-                      child: GestureDetector(
-                        onTap: () {
-                          // Add your onTap logic here
-                        },
-                        child: SvgPicture.asset(
-                          "assets/images/x.svg",
-                          width: screenWidth * 0.04,
-                          height: screenHeight * 0.03,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(width: screenWidth * 0.02),
-              Container(
-                width: screenWidth * 0.24,
-                height: screenHeight * 0.03,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 245, 245, 245),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Stack(
-                  children: [
-                    const Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Chicken',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 13,
-                          color: Color(0xFF989898),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      width: screenWidth * 0.026,
-                      height: screenHeight * 0.017,
-                      right: 6,
-                      top: 6,
-                      child: GestureDetector(
-                        onTap: () {
-                          // Add your onTap logic here
-                        },
-                        child: SvgPicture.asset(
-                          "assets/images/x.svg",
-                          width: screenWidth * 0.04,
-                          height: screenHeight * 0.03,
-                        ),
-                      ),
-                    ),
-                  ],
+                child: const Text(
+                  'clear',
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
                 ),
               ),
             ],
           ),
-          Align(
-            child: SizedBox(
-              width: screenWidth * 0.9,
-              height: screenHeight * 0.67,
-              child: ListView.builder(
-                scrollDirection: Axis.vertical,
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      margin: const EdgeInsets.all(15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color.fromARGB(255, 0, 0, 0)
-                                .withOpacity(0.05),
-                            spreadRadius: 0,
-                            blurRadius: 10,
-                            offset: const Offset(8, 2),
-                          ),
-                        ],
-                      ),
-                      child: Stack(
-                        children: [
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Row(
-                                  children: [
-                                    Align(
-                                      child: SizedBox(
-                                        width: screenWidth * 0.27,
-                                        height: screenHeight * 0.12,
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          child: Image.asset(
-                                            image[index],
-                                            fit: BoxFit.fill,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: screenHeight * 0.02,
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(left: 10),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                bottom: 5.0),
-                                            child: Align(
-                                              child: Text(
-                                                title[index],
-                                                style: const TextStyle(
-                                                  fontSize: 17,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                bottom: 5.0),
-                                            child: Align(
-                                              child: Text(
-                                                subTitle[0],
-                                                style: const TextStyle(
-                                                  fontWeight: FontWeight.w200,
-                                                  fontSize: 12,
-                                                  color: Color(0xFFB6B7B7),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                bottom: 8.0),
-                                            child: Align(
-                                              child: Row(
-                                                children: [
-                                                  Icon(
-                                                    // Add the desired prefix icon here
-                                                    Icons.star,
-                                                    color: Color(0xFFFF7A31),
-                                                    size: 16,
-                                                  ),
-                                                  SizedBox(width: 4),
-                                                  Text(
-                                                    rating[0],
-                                                    style: const TextStyle(
-                                                      fontSize: 13,
-                                                      color: Color(0xFFFF7A31),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                bottom: 8.0),
-                                            child: Align(
-                                              child: Row(
-                                                children: [
-                                                  Icon(
-                                                    // Add the desired prefix icon here
-                                                    Icons.location_pin,
-                                                    color: Color(0xFFFF7A31),
-                                                    size: 16,
-                                                  ),
-                                                  SizedBox(width: 4),
-                                                  Text(
-                                                    location[0],
-                                                    style: const TextStyle(
-                                                      fontSize: 13,
-                                                      color: Color(0xFFFF7A31),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
+          SizedBox(height: screenHeight * 0.02),
+          ToggleButtons(
+            fillColor: Colors.red,
+            borderWidth: 2,
+            borderColor: Colors.transparent,
+            selectedColor: Colors.white,
+            borderRadius: BorderRadius.circular(8),
+            constraints: BoxConstraints(
+              minWidth: screenWidth * 0.3,
+              minHeight: screenHeight * 0.05,
+            ),
+            isSelected: isSelected,
+            onPressed: (int index) {
+              _selectButton(index);
+            },
+            children: const [
+              Text('Food'),
+              Text('Drinks'),
+              Text('Dessert'),
+            ],
+          ),
+          SizedBox(height: screenHeight * 0.02),
+          Container(
+            margin: EdgeInsets.only(
+              left: screenWidth * 0.05,
+              top: screenHeight * 0.005,
+            ),
+            width: screenWidth * 0.18,
+            height: screenHeight * 0.03,
+            child: const Text(
+              'Price',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
-          SizedBox(height: screenHeight * 0.08),
+          SizedBox(height: screenHeight * 0.04),
+          // create three buttons with only one active  at a time and change the color of the active button when pressed and change the color of the inactive buttons to white when pressed and change the color of the inactive buttons to white when pressed
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              SizedBox(
+                width: screenWidth * 0.25,
+                height: screenHeight * 0.05,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: const Text(
+                    'Low to High',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: screenWidth * 0.25,
+                height: screenHeight * 0.05,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: const Text(
+                    'High to Low',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: screenWidth * 0.25,
+                height: screenHeight * 0.05,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: const Text(
+                    'Discount',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: screenHeight * 0.04),
+          Container(
+            margin: EdgeInsets.only(
+              left: screenWidth * 0.05,
+              top: screenHeight * 0.005,
+            ),
+            width: screenWidth * 0.18,
+            height: screenHeight * 0.03,
+            child: const Text(
+              'Rating',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+
+          // RangeSlider(
+          //   values: _selectedRange,
+          //   min: 0,
+          //   max: 200,
+          //   onChanged: (RangeValues values) {
+          //     setState(() {
+          //       _selectedRange = values;
+          //     });
+          //   },
+          //   labels: RangeLabels(
+          //     '\$${_selectedRange.start.toInt().toString()}', // Start value label
+          //     '\$${_selectedRange.end.toInt().toString()}', // End value label
+          //   ),
+          //   onChangeStart: (RangeValues values) {
+          //     _showTooltip(context, values.start);
+          //     _showTooltip(context, values.end);
+          //   },
+          //   onChangeEnd: (RangeValues values) {
+          //     final startValue = values.start.toInt();
+          //     final endValue = values.end.toInt();
+          //     final tooltipStartValue = '\$$startValue';
+          //     final tooltipEndValue = '\$$endValue';
+
+          //     overlayEntry = OverlayEntry(
+          //       builder: (context) => Positioned(
+          //         top: 400,
+          //         left: startValue / 200 * MediaQuery.of(context).size.width,
+          //         child: Tooltip(
+          //           message: tooltipStartValue,
+          //           child: Text(tooltipStartValue),
+          //         ),
+          //       ),
+          //     );
+          //     Overlay.of(context)?.insert(overlayEntry!);
+
+          //     overlayEntry2 = OverlayEntry(
+          //       builder: (context) => Positioned(
+          //         top: 500,
+          //         left: endValue / 200 * MediaQuery.of(context).size.width,
+          //         child: Tooltip(
+          //           message: tooltipEndValue,
+          //           child: Text(tooltipEndValue),
+          //         ),
+          //       ),
+          //     );
+          //     Overlay.of(context)?.insert(overlayEntry2!);
+          //   },
+          // ),
+          SizedBox(height: screenHeight * 0.02),
+          Container(
+            margin: EdgeInsets.only(
+              left: screenWidth * 0.05,
+              top: screenHeight * 0.005,
+            ),
+            width: screenWidth * 0.18,
+            height: screenHeight * 0.03,
+            child: const Text(
+              'Rating',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          SizedBox(height: screenHeight * 0.02),
+          Container(
+            margin: EdgeInsets.only(
+              left: screenWidth * 0.05,
+              top: screenHeight * 0.005,
+            ),
+            width: screenWidth * 0.18,
+            height: screenHeight * 0.03,
+            child: const Text(
+              'Ingredient',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ],
       ),
       floatingActionButtonLocation: showBtmAppBr
