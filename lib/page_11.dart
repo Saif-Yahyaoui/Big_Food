@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:big_food/page_10.dart';
 import 'package:big_food/page_12.dart';
+import 'package:big_food/page_16.dart';
 import 'package:big_food/page_17.dart';
 import 'package:big_food/page_18.dart';
 import 'package:big_food/page_6.dart';
@@ -40,7 +41,7 @@ class Page11State extends State<Page11> {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(140),
+        preferredSize: const Size.fromHeight(140),
         child: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: const Color(0xFFFF0000),
@@ -60,7 +61,7 @@ class Page11State extends State<Page11> {
                     builder: (BuildContext context) {
                       return IconButton(
                         color: Colors.white,
-                        iconSize: 32,
+                        iconSize: 35,
                         icon: const Icon(Icons.menu),
                         onPressed: () {
                           Scaffold.of(context).openDrawer();
@@ -85,12 +86,29 @@ class Page11State extends State<Page11> {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsets.only(right: 16.0, top: 12),
+              padding: const EdgeInsets.only(top: 12),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Page16()),
+                  );
+                },
+                icon: const ImageIcon(
+                  AssetImage('assets/images/sort.png'),
+                  color: Colors.white,
+                  size: 35,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 10.0, top: 12),
               child: IconButton(
                 onPressed: () {},
                 icon: const ImageIcon(
                   AssetImage('assets/images/bell.png'),
                   color: Colors.white,
+                  size: 35,
                 ),
               ),
             ),
