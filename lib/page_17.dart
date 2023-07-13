@@ -363,7 +363,7 @@ class Page1State extends State<Page1> {
       if (_scrollController.position.userScrollDirection ==
           ScrollDirection.reverse) {
         setState(() {
-          showBtmAppBr = false;
+          showBtmAppBr = true;
         });
       } else {
         setState(() {
@@ -392,6 +392,7 @@ class Page1State extends State<Page1> {
         children: [
           SizedBox(height: screenHeight * 0.02),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
                 margin: EdgeInsets.only(
@@ -490,39 +491,42 @@ class Page1State extends State<Page1> {
                 width: screenWidth * 0.24,
                 height: screenHeight * 0.03,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 245, 245, 245),
+                  color: const Color.fromARGB(255, 245, 245, 245),
                   borderRadius: BorderRadius.circular(30),
                 ),
-                child: Stack(
-                  children: [
-                    const Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Chicken',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 13,
-                          color: Color(0xFF989898),
+                child: Container(
+                  margin: EdgeInsets.only(right: screenWidth * 0.02),
+                  child: Stack(
+                    children: [
+                      const Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Chicken',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 13,
+                            color: Color(0xFF989898),
+                          ),
                         ),
                       ),
-                    ),
-                    Positioned(
-                      width: screenWidth * 0.026,
-                      height: screenHeight * 0.017,
-                      right: 6,
-                      top: 6,
-                      child: GestureDetector(
-                        onTap: () {
-                          // Add your onTap logic here
-                        },
-                        child: SvgPicture.asset(
-                          "assets/images/x.svg",
-                          width: screenWidth * 0.04,
-                          height: screenHeight * 0.03,
+                      Positioned(
+                        width: screenWidth * 0.026,
+                        height: screenHeight * 0.017,
+                        right: 6,
+                        top: 6,
+                        child: GestureDetector(
+                          onTap: () {
+                            // Add your onTap logic here
+                          },
+                          child: SvgPicture.asset(
+                            "assets/images/x.svg",
+                            width: screenWidth * 0.04,
+                            height: screenHeight * 0.03,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],

@@ -443,7 +443,6 @@ class Page1State extends State<Page1> {
           SizedBox(height: screenHeight * 0.02),
           ToggleButtons(
             fillColor: Colors.red,
-            borderWidth: 2,
             borderColor: Colors.transparent,
             selectedColor: Colors.white,
             borderRadius: BorderRadius.circular(8),
@@ -478,7 +477,6 @@ class Page1State extends State<Page1> {
             ),
           ),
           SizedBox(height: screenHeight * 0.04),
-          // create three buttons with only one active  at a time and change the color of the active button when pressed and change the color of the inactive buttons to white when pressed and change the color of the inactive buttons to white when pressed
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -487,7 +485,7 @@ class Page1State extends State<Page1> {
                 height: screenHeight * 0.05,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
+                    backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
@@ -507,7 +505,7 @@ class Page1State extends State<Page1> {
                 height: screenHeight * 0.05,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
+                    backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
@@ -527,7 +525,7 @@ class Page1State extends State<Page1> {
                 height: screenHeight * 0.05,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
+                    backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
@@ -618,7 +616,7 @@ class Page1State extends State<Page1> {
             width: screenWidth * 0.18,
             height: screenHeight * 0.03,
             child: const Text(
-              'Rating',
+              'ingredients',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,

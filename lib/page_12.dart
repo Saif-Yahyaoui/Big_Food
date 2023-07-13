@@ -51,7 +51,7 @@ class Page12State extends State<Page12> {
       if (_scrollController.position.userScrollDirection ==
           ScrollDirection.reverse) {
         setState(() {
-          showBtmAppBr = false;
+          showBtmAppBr = true;
         });
       } else {
         setState(() {
@@ -85,11 +85,11 @@ class Page12State extends State<Page12> {
               children: [
                 SizedBox(
                   width: screenWidth,
-                  height: screenHeight / 1.06,
+                  height: screenHeight / 1.065,
                   child: const MapScreen(hideAppBar: true),
                 ),
                 Positioned(
-                  top: 510,
+                  top: 470,
                   left: 0,
                   right: 0,
                   child: Stack(
@@ -106,12 +106,12 @@ class Page12State extends State<Page12> {
                         top: 18,
                         left: 200,
                         child: SizedBox(
-                          width: screenWidth / 10,
-                          height: screenHeight * 0.003,
+                          width: screenWidth / 13,
+                          height: screenHeight * 0.004,
                           child: DecoratedBox(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(25),
-                              color: Colors.grey.withOpacity(0.71),
+                              color: Colors.grey.withOpacity(0.5),
                             ),
                           ),
                         ),
@@ -132,9 +132,9 @@ class Page12State extends State<Page12> {
                     },
                   ),
                 ),
-                SizedBox(height: screenHeight * 0.01),
+                SizedBox(height: screenHeight * 0.03),
                 Positioned(
-                  top: 560,
+                  top: 510,
                   left: 10,
                   child: SizedBox(
                     width: screenWidth * 0.9,
@@ -148,9 +148,8 @@ class Page12State extends State<Page12> {
                     ),
                   ),
                 ),
-                SizedBox(height: screenHeight * 0.01),
                 Positioned(
-                  top: 600,
+                  top: 540,
                   child: Align(
                     child: SizedBox(
                       width: screenWidth,
